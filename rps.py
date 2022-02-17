@@ -20,8 +20,9 @@ class Player:
         return 'rock'
 
     def learn(self, my_move, their_move):
-        self.my_move = my_move
-        self.their_move = their_move
+        pass
+#       self.my_move = my_move
+#       self.their_move = their_move
 
 
 def beats(one, two):
@@ -54,6 +55,9 @@ class ReflectPlayer(Player):
     def __init__(self):
         self.their_move = random.choice(moves)
 
+    def learn(self, my_move, their_move):
+        self.their_move = their_move
+
     def move(self):
         return self.their_move
 
@@ -61,6 +65,9 @@ class ReflectPlayer(Player):
 class CyclePlayer(Player):
     def __init__(self):
         self.my_move = self.moves
+
+    def learn(self, my_move, their_move):
+        self.my_move = my_move
 
     def move(self):
         if self.my_move == self.moves[1]:
@@ -99,6 +106,8 @@ class Game:
             print(Fore.RED + "Player 2 Wins!")
         self.p1.learn(move1, move2)
         self.p2.learn(move2, move1)
+        print(f"Player 1 Score: {self.score_Player1}"
+              f"  Player 2 Score: {self.score_Player2}")
 
     def play_game(self):
         print("Rock, Paper, Scissors: Game start!")
@@ -116,6 +125,15 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), random.choice([RandomPlayer(),
-                ReflectPlayer(), CyclePlayer(), RockPlayer()]))
+    # game = Game(HumanPlayer(), random.choice([RandomPlayer(),
+    #        ReflectPlayer(), CyclePlayer(), RockPlayer()]))
+    players = [
+        RockPlayer(),
+        RandomPlayer(),
+        ReflectPlayer(),
+        CyclePlayer()
+    ]
+    p1 = HumanPlayer()
+    p2 = random.choice(players)
+    game = Game(p1, p2)
     game.play_game()
