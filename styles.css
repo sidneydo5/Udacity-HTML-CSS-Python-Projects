@@ -1,40 +1,33 @@
-body {
-    text-align: center;
+img {
+    width: 300px;
+    margin: auto;
+    display: block;
 }
 
-h1 {
-    font-family: Monoton;
-    font-size: 70px;
-    margin: 0.2em;
+div {
+    max-width: 320px;
 }
 
-h2 {
-    margin: 1em 0 0.25em;
+.italicize{
+    font-style: italic;
 }
 
-h2:first-of-type {
-    margin-top: 0.5em;
+.bold{
+    font-weight: bold;
 }
 
-table,
-tr,
-td {
-    border: 1px solid black;
+ul {
+    list-style-type: none;
 }
 
-table {
-    border-collapse: collapse;
-    margin: 0 auto;
+.solid{
+    border: 3px solid orange;
+    border-radius: 25px;
+    background-color: lightsalmon;
+    box-shadow: 5px 5px lightgray;
 }
 
-tr {
-    height: 20px;
-}
-
-td {
-    width: 20px;
-}
-
-input[type=number] {
-    width: 6em;
+.solid2{
+    border: 2px solid green;
+    border-radius: 25px;
 }
